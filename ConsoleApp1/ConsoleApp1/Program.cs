@@ -83,7 +83,6 @@ namespace ConsoleApp1
                 }
             }
 
-            // Запись результата в файл OUTPUT.TXT
             File.WriteAllText("OUTPUT.TXT", string.Join(" ", team1.Take(K)));
         }
     }
