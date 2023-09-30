@@ -6,31 +6,46 @@ class Program
 {
     static void Main()
     {
-        string[] inputLines = File.ReadAllLines("INPUT.TXT");
-        string[] input = inputLines[0].Split();
-        int N = int.Parse(input[0]);
-        int P = int.Parse(input[1]);
-
-        List<int>[] graph = new List<int>[N + 1];
-
-        for (int i = 1; i <= N; i++)
+        if (File.Exists("INPUT.TXT"))
         {
-            graph[i] = new List<int>();
-        }
+            string[] inputLines = File.ReadAllLines("INPUT.TXT");
+            string[] input = inputLines[0].Split();
+            if (input.Length >= 3)
+            {
+                int N = int.Parse(input[0]);
+                int P = int.Parse(input[1]);
 
-        for (int i = 1; i < inputLines.Length; i++)
+                List<int>[] graph = new List<int>[N + 1];
+
+                for (int i = 1; i <= N; i++)
+                {
+                    graph[i] = new List<int>();
+                }
+
+                for (int i = 1; i < inputLines.Length; i++)
+                {
+                    string[] road = inputLines[i].Split();
+                    int village1 = int.Parse(road[0]);
+                    int village2 = int.Parse(road[1]);
+
+                    graph[village1].Add(village2);
+                    graph[village2].Add(village1);
+                }
+
+                int result = CalculateMinimumRoadsToIsolateGroup(graph, N, P);
+
+                File.WriteAllText("OUTPUT.TXT", result.ToString());
+            }
+            else
+            {
+                Console.WriteLine("File INPUT.TXT has not enough data");
+            }
+        }
+        else
         {
-            string[] road = inputLines[i].Split();
-            int village1 = int.Parse(road[0]);
-            int village2 = int.Parse(road[1]);
+            Console.WriteLine("File INPUT.TXT not found.");
 
-            graph[village1].Add(village2);
-            graph[village2].Add(village1);
         }
-
-        int result = CalculateMinimumRoadsToIsolateGroup(graph, N, P);
-
-        File.WriteAllText("OUTPUT.TXT", result.ToString());
     }
 
     static int CalculateMinimumRoadsToIsolateGroup(List<int>[] graph, int N, int P)
