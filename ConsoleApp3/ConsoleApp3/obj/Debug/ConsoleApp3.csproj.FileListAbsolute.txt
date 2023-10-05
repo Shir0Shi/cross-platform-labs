@@ -1,0 +1,8 @@
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\bin\Debug\ConsoleApp3.exe.config
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\bin\Debug\ConsoleApp3.exe
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\bin\Debug\ConsoleApp3.pdb
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.AssemblyReference.cache
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.SuggestedBindingRedirects.cache
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.CoreCompileInputs.cache
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.exe
+D:\mosha\7semester\КП\labs\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.pdb
