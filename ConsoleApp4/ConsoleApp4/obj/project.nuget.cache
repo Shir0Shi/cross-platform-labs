@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nC3wR4cCslhjAXITcfzoG3wYAx7d2IZ5B2a0G9a0NsSQ9cB/m+jNngR4lv8Lmri3o82GNc4z4ycB2LMjwZR3PA==",
+  "success": true,
+  "projectFilePath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\ConsoleApp4\\ConsoleApp4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\notju\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ConsoleApp1\ConsoleApp1\ConsoleApp1.csproj" />
+    <ProjectReference Include="..\..\ConsoleApp2\ConsoleApp2\ConsoleApp2.csproj" />
+    <ProjectReference Include="..\..\ConsoleApp3\ConsoleApp3\ConsoleApp3.csproj" />
+  </ItemGroup>
+
+</Project>

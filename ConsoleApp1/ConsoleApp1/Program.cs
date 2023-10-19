@@ -7,13 +7,12 @@ using System.IO;
 
 namespace ConsoleApp1
 {
-    internal class Program
+    public class Program
     {
-        static void Main()
+        public static void RunLab1(string inputPath, string outputPath)
         {
-            if (File.Exists("INPUT.TXT"))
-            {
-                string[] inputLines = File.ReadAllLines("INPUT.TXT");
+            if (File.Exists(inputPath)) { 
+                string[] inputLines = File.ReadAllLines(inputPath);
                 string[] input = inputLines[0].Split();
                 if (input.Length >= 3)
                 {
@@ -87,18 +86,26 @@ namespace ConsoleApp1
                         }
                     }
 
-                    File.WriteAllText("OUTPUT.TXT", string.Join(" ", team1.Take(K)));
+                    File.WriteAllText(outputPath, string.Join(" ", team1.Take(K)));
+                    Console.WriteLine("lab1 was executed successfuly");
+                    Console.WriteLine("result is in " + outputPath);
+
                 }
                 else
                 {
                     Console.WriteLine("File INPUT.TXT has not enough data");
+                    Console.WriteLine(inputLines);
                 }
-            }
-            else
+            }else
             {
                 Console.WriteLine("File INPUT.TXT not found.");
 
             }
+
+        }
+        static void Main()
+        {
+            RunLab1("INPUT.TXT", "OUTPUT.TXT");
         }
     }
 }

@@ -1,0 +1,126 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "ConsoleApp1/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ConsoleApp1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp1.dll": {}
+        }
+      },
+      "ConsoleApp2/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ConsoleApp2.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp2.dll": {}
+        }
+      },
+      "ConsoleApp3/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ConsoleApp3.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp3.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleApp1/1.0.0": {
+      "type": "project",
+      "path": "../../ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj",
+      "msbuildProject": "../../ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj"
+    },
+    "ConsoleApp2/1.0.0": {
+      "type": "project",
+      "path": "../../ConsoleApp2/ConsoleApp2/ConsoleApp2.csproj",
+      "msbuildProject": "../../ConsoleApp2/ConsoleApp2/ConsoleApp2.csproj"
+    },
+    "ConsoleApp3/1.0.0": {
+      "type": "project",
+      "path": "../../ConsoleApp3/ConsoleApp3/ConsoleApp3.csproj",
+      "msbuildProject": "../../ConsoleApp3/ConsoleApp3/ConsoleApp3.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "ConsoleApp1 >= 1.0.0",
+      "ConsoleApp2 >= 1.0.0",
+      "ConsoleApp3 >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\notju\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\LabsLibrary\\LabsLibrary.csproj",
+      "projectName": "LabsLibrary",
+      "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\LabsLibrary\\LabsLibrary.csproj",
+      "packagesPath": "C:\\Users\\notju\\.nuget\\packages\\",
+      "outputPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\LabsLibrary\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\notju\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {
+              "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj"
+            },
+            "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {
+              "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj"
+            },
+            "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp3\\ConsoleApp3\\ConsoleApp3.csproj": {
+              "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp3\\ConsoleApp3\\ConsoleApp3.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

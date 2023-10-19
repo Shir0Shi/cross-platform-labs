@@ -1,0 +1,192 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "CommandLineParser/2.9.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CommandLine.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/CommandLine.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ConsoleApp1/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ConsoleApp1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp1.dll": {}
+        }
+      },
+      "ConsoleApp2/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ConsoleApp2.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp2.dll": {}
+        }
+      },
+      "ConsoleApp3/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ConsoleApp3.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp3.dll": {}
+        }
+      },
+      "LabsLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ConsoleApp1": "1.0.0",
+          "ConsoleApp2": "1.0.0",
+          "ConsoleApp3": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LabsLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LabsLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CommandLineParser/2.9.1": {
+      "sha512": "OE0sl1/sQ37bjVsPKKtwQlWDgqaxWgtme3xZz7JssWUzg5JpMIyHgCTY9MVMxOg48fJ1AgGT3tgdH5m/kQ5xhA==",
+      "type": "package",
+      "path": "commandlineparser/2.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CommandLine20.png",
+        "License.md",
+        "README.md",
+        "commandlineparser.2.9.1.nupkg.sha512",
+        "commandlineparser.nuspec",
+        "lib/net40/CommandLine.dll",
+        "lib/net40/CommandLine.xml",
+        "lib/net45/CommandLine.dll",
+        "lib/net45/CommandLine.xml",
+        "lib/net461/CommandLine.dll",
+        "lib/net461/CommandLine.xml",
+        "lib/netstandard2.0/CommandLine.dll",
+        "lib/netstandard2.0/CommandLine.xml"
+      ]
+    },
+    "ConsoleApp1/1.0.0": {
+      "type": "project",
+      "path": "../../ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj",
+      "msbuildProject": "../../ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj"
+    },
+    "ConsoleApp2/1.0.0": {
+      "type": "project",
+      "path": "../../ConsoleApp2/ConsoleApp2/ConsoleApp2.csproj",
+      "msbuildProject": "../../ConsoleApp2/ConsoleApp2/ConsoleApp2.csproj"
+    },
+    "ConsoleApp3/1.0.0": {
+      "type": "project",
+      "path": "../../ConsoleApp3/ConsoleApp3/ConsoleApp3.csproj",
+      "msbuildProject": "../../ConsoleApp3/ConsoleApp3/ConsoleApp3.csproj"
+    },
+    "LabsLibrary/1.0.0": {
+      "type": "project",
+      "path": "../LabsLibrary/LabsLibrary.csproj",
+      "msbuildProject": "../LabsLibrary/LabsLibrary.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "CommandLineParser >= 2.9.1",
+      "ConsoleApp1 >= 1.0.0",
+      "ConsoleApp2 >= 1.0.0",
+      "ConsoleApp3 >= 1.0.0",
+      "LabsLibrary >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\notju\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\ConsoleApp4\\ConsoleApp4.csproj",
+      "projectName": "lab-work-4-sy",
+      "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\ConsoleApp4\\ConsoleApp4.csproj",
+      "packagesPath": "C:\\Users\\notju\\.nuget\\packages\\",
+      "outputPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\ConsoleApp4\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\notju\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {
+              "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj"
+            },
+            "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {
+              "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj"
+            },
+            "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp3\\ConsoleApp3\\ConsoleApp3.csproj": {
+              "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp3\\ConsoleApp3\\ConsoleApp3.csproj"
+            },
+            "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\LabsLibrary\\LabsLibrary.csproj": {
+              "projectPath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\LabsLibrary\\LabsLibrary.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "CommandLineParser": {
+            "target": "Package",
+            "version": "[2.9.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

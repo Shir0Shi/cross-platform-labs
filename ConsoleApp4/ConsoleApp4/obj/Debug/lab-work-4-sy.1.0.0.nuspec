@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>lab-work-4-sy</id>
+    <version>1.0.0</version>
+    <title>Crossplatform lab work #4 SY</title>
+    <authors>SofiiaY</authors>
+    <description>Package Description</description>
+    <packageTypes>
+      <packageType name="DotnetTool" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\obj\DotnetToolSettings.xml" target="tools\net6.0\any\DotnetToolSettings.xml" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp4.dll" target="tools\net6.0\any\ConsoleApp4.dll" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp4.deps.json" target="tools\net6.0\any\ConsoleApp4.deps.json" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp4.runtimeconfig.json" target="tools\net6.0\any\ConsoleApp4.runtimeconfig.json" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp4.pdb" target="tools\net6.0\any\ConsoleApp4.pdb" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\CommandLine.dll" target="tools\net6.0\any\CommandLine.dll" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp1.exe" target="tools\net6.0\any\ConsoleApp1.exe" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp2.exe" target="tools\net6.0\any\ConsoleApp2.exe" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp3.exe" target="tools\net6.0\any\ConsoleApp3.exe" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\LabsLibrary.dll" target="tools\net6.0\any\LabsLibrary.dll" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp1.pdb" target="tools\net6.0\any\ConsoleApp1.pdb" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp1.exe.config" target="tools\net6.0\any\ConsoleApp1.exe.config" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp2.pdb" target="tools\net6.0\any\ConsoleApp2.pdb" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp2.exe.config" target="tools\net6.0\any\ConsoleApp2.exe.config" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp3.pdb" target="tools\net6.0\any\ConsoleApp3.pdb" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\ConsoleApp3.exe.config" target="tools\net6.0\any\ConsoleApp3.exe.config" />
+    <file src="D:\mosha\7semester\КП\labs\ConsoleApp4\ConsoleApp4\bin\Debug\net6.0\publish\LabsLibrary.pdb" target="tools\net6.0\any\LabsLibrary.pdb" />
+  </files>
+</package>
