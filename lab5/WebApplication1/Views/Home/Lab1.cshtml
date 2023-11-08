@@ -1,0 +1,24 @@
+﻿@model YourNamespace.Models.Lab1ViewModel
+
+@{
+    ViewBag.Title = "Лабораторна робота 1";
+}
+
+<h2>Лабораторна робота 1: Розділення учасників на команди</h2>
+
+@using (Html.BeginForm("Lab1", "Lab1", FormMethod.Post))
+{
+    <div>
+        <label for="inputData">Введіть дані:</label>
+        <textarea id="inputData" name="InputData" required>@Model.InputData</textarea>
+    </div>
+    <button type="submit">Виконати</button>
+
+    if (!string.IsNullOrEmpty(Model.Result))
+    {
+        <div>
+            <h3>Результат:</h3>
+            <pre>@Model.Result</pre>
+        </div>
+    }
+}
