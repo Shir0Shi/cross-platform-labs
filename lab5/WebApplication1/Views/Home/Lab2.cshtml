@@ -1,12 +1,12 @@
 ﻿@model YourNamespace.Models.LabViewModel
 
 @{
-    ViewBag.Title = "Лабораторна робота 1";
+    ViewBag.Title = "Лабораторна робота 2";
 }
 
 <h2>Лабораторна робота 1: Розділення учасників на команди</h2>
 
-@using (Html.BeginForm("Lab1", "Lab1", FormMethod.Post))
+@using (Html.BeginForm("Lab2", "Lab2", FormMethod.Post))
 {
     <div>
         <label for="inputData">Введіть дані:</label>
@@ -24,4 +24,3 @@
 }
 
 <a href="@Url.Action("Profile", "User")">Назад до профілю</a>
-

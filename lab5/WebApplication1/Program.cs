@@ -29,8 +29,8 @@ app.UseRouting();
 // app.UseAuthentication();  
 app.UseAuthorization();
 
-app.MapControllerRoute(
+app.MapControllerRoute( // TODO fix connection controller - view
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Welcome}/{id?}");
 
 app.Run();

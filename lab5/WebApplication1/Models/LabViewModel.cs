@@ -2,7 +2,7 @@
 
 namespace WebApplication1.Models
 {
-    public class Lab1ViewModel
+    public class LabViewModel
     {
         [Required(ErrorMessage = "Введення даних є обов'язковим")]
         public string InputData { get; set; }
