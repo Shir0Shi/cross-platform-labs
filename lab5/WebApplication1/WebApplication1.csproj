@@ -20,11 +20,4 @@
     <ProjectReference Include="..\..\ConsoleApp4\LabsLibrary\LabsLibrary.csproj" />
   </ItemGroup>
 
-
-	<ItemGroup>
-    <Content Update="Views\Home\Welcome.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>

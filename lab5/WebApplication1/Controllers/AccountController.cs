@@ -24,6 +24,21 @@ namespace WebApplication1.Controllers
 
             return View(user);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // TODO make request
+                return RedirectToAction("UserPage");
+            }
+
+            return View(model);
+        }
+
+
+
         public IActionResult Register()
         {
             var model = new RegisterViewModel();

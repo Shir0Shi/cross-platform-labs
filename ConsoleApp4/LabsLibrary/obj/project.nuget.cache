@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "guMRNyUsIoKdZRI3q99/wmihqbinI/JbPPBoHkNjVhS8j8hSWoW1S29md56TUCCqHNV6iOphFgpwOyjqPi8dUw==",
+  "dgSpecHash": "NL7V2L0INU/odJpGdS3Il1rITaERstHRFpHk5FBe/EjzOeS3gsyVRbE7Aexl9Q5CrBxcViJ6hXGqcaH1crRxNw==",
   "success": true,
   "projectFilePath": "D:\\mosha\\7semester\\КП\\labs\\ConsoleApp4\\LabsLibrary\\LabsLibrary.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\notju\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.23\\microsoft.windowsdesktop.app.ref.6.0.23.nupkg.sha512",
-    "C:\\Users\\notju\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.23\\microsoft.netcore.app.ref.6.0.23.nupkg.sha512",
-    "C:\\Users\\notju\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.23\\microsoft.aspnetcore.app.ref.6.0.23.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
