@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data;
 using WebApplication1.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace WebApplication1.Controllers
 {
@@ -30,8 +32,20 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO make request
-                return RedirectToAction("UserPage");
+                var hashedPassword = BitConverter.ToString(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(model.Password))).Replace("-", "").ToLower();
+                var user = new L5User
+                {
+                    Username = model.Username,
+                    FullName = model.FullName,
+                    Password = hashedPassword,
+                    PhoneNumber = model.Phone,
+                    Email = model.Email
+                };
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Profile", new { userId = user.UserId });
             }
 
             return View(model);
