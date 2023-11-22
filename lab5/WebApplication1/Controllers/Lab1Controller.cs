@@ -14,12 +14,15 @@ namespace WebApplication1.Controllers
             _environment = environment;
         }
 
+        [HttpGet]
+        //[Route("Lab1")]
         public ActionResult Lab1()
         {
             return View(new LabViewModel());
         }
 
         [HttpPost]
+        //[Route("Lab1")]
         public ActionResult Lab1(LabViewModel model)
         {
             if (ModelState.IsValid)
