@@ -32,24 +32,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/mosha/7semester/КП/labs/lab5/WebApplication1/Views/Home/Lab1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMYWIxLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/mosha/7semester/КП/labs/lab5/WebApplication1/Views/Home/Lab2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMYWIyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/mosha/7semester/КП/labs/lab5/WebApplication1/Views/Home/Lab3.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMYWIzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/mosha/7semester/КП/labs/lab5/WebApplication1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/mosha/7semester/КП/labs/lab5/WebApplication1/Views/Home/Welcome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxXZWxjb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/mosha/7semester/КП/labs/lab5/WebApplication1/Views/Lab/Lab.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiXExhYi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/mosha/7semester/КП/labs/lab5/WebApplication1/Views/Shared/Error.cshtml]

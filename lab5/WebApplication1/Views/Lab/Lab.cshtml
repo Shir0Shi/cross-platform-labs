@@ -1,0 +1,32 @@
+﻿@model WebApplication1.Models.LabViewModel
+
+@{
+    int labNumber = ViewBag.LabNumber ?? 1;
+    ViewBag.Title = $"Лабораторна робота {labNumber}";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Лабораторна робота @labNumber: </h2>
+
+            @using (Html.BeginForm($"Lab{labNumber}", "Lab", FormMethod.Post, new { @class = "form-group" }))
+            {
+                <label for="inputData">Введіть дані:</label>
+                <textarea id="inputData" name="InputData" class="form-control" required>@Model.InputData</textarea>
+
+                <button type="submit" class="btn btn-primary mt-3">Виконати</button>
+
+                if (!string.IsNullOrEmpty(Model.Result))
+                {
+                    <div class="alert alert-success mt-3">
+                        <h3>Результат:</h3>
+                        <pre>@Model.Result</pre>
+                    </div>
+                }
+            }
+
+            <a href="@Url.Action("Profile", "Account")" class="btn btn-link">Назад до профілю</a>
+        </div>
+    </div>
+</div>
