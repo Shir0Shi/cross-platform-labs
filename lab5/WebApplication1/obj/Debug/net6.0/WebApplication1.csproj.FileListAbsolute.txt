@@ -90,3 +90,8 @@ D:\mosha\7semester\КП\labs\lab5\WebApplication1\obj\Debug\net6.0\refint\WebApp
 D:\mosha\7semester\КП\labs\lab5\WebApplication1\obj\Debug\net6.0\WebApplication1.pdb
 D:\mosha\7semester\КП\labs\lab5\WebApplication1\obj\Debug\net6.0\WebApplication1.genruntimeconfig.cache
 D:\mosha\7semester\КП\labs\lab5\WebApplication1\obj\Debug\net6.0\ref\WebApplication1.dll
+D:\mosha\7semester\КП\labs\lab5\WebApplication1\bin\Debug\net6.0\IdentityModel.dll
+D:\mosha\7semester\КП\labs\lab5\WebApplication1\bin\Debug\net6.0\IdentityServer4.dll
+D:\mosha\7semester\КП\labs\lab5\WebApplication1\bin\Debug\net6.0\IdentityServer4.Storage.dll
+D:\mosha\7semester\КП\labs\lab5\WebApplication1\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+D:\mosha\7semester\КП\labs\lab5\WebApplication1\bin\Debug\net6.0\Newtonsoft.Json.dll

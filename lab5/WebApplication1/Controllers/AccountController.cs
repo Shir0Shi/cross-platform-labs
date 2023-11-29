@@ -4,6 +4,7 @@ using WebApplication1.Models;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebApplication1.Controllers
 {
@@ -61,9 +62,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl)
         {
-            return View(new LoginViewModel());
+            var model = new LoginViewModel();
+            return View(model);
         }
 
         [HttpPost]
@@ -71,21 +73,31 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var hashedPassword = BitConverter.ToString(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(model.Password))).Replace("-", "").ToLower();
+                var redirectUrl = Url.Action("Profile", "Account");
+                return Challenge(new AuthenticationProperties { RedirectUri = redirectUrl }, "oidc");
+            }
 
-                var user = await _context.L5Users
-                                         .FirstOrDefaultAsync(u => u.Username == model.Username && u.Password == hashedPassword);
+            return View(model);
+        }
 
-                if (user != null)
+        public async Task<IActionResult> HandleExternalLogin(string returnUrl)
+        {
+            var authenticateResult = await HttpContext.AuthenticateAsync("oidc");
+
+            if (authenticateResult?.Succeeded == true)
+            {
+                if (Url.IsLocalUrl(returnUrl))
                 {
-                    return RedirectToAction("Profile", new { userId = user.UserId });
+                    return LocalRedirect(returnUrl);
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Incorrect username or password");
+                    return RedirectToAction("Index", "Home");
                 }
             }
-            return View(model);
+
+            return RedirectToAction(nameof(Login));
         }
+
     }
 }

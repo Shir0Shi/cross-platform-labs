@@ -1,9 +1,36 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using WebApplication1;
 using WebApplication1.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddIdentityServer()
+    .AddInMemoryIdentityResources(Config.GetIdentityResources())
+    .AddInMemoryApiScopes(Config.GetApiScopes())
+    .AddInMemoryClients(Config.GetClients())
+    .AddDeveloperSigningCredential();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = "Cookies";
+    options.DefaultChallengeScheme = "oidc";
+})
+.AddCookie("Cookies")
+.AddOpenIdConnect("oidc", options =>
+{
+    options.Authority = "https://localhost:5116"; // IdentityServer
+    options.RequireHttpsMetadata = false; 
+    options.ClientId = "mvc-client";
+    options.ClientSecret = "secret"; // TODO поменять
+    options.ResponseType = "code";
+    options.CallbackPath = "/signin-oidc";
+
+
+    options.SaveTokens = true;
+});
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -26,10 +53,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// app.UseAuthentication();  
+app.UseIdentityServer();
+
+app.UseAuthentication();  
 app.UseAuthorization();
 
-app.MapControllerRoute( // TODO fix connection controller - view
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Welcome}/{id?}");
 
