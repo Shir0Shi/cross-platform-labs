@@ -35,9 +35,9 @@ namespace WebApplication1
 
                 // TODO настроить SSL потому что оно не работает и не работает логин
 
-                RedirectUris = { "http://localhost:5116/signin-oidc" },
+                RedirectUris = { "https://localhost:5116/signin-oidc" },
 
-                PostLogoutRedirectUris = { "http://localhost:5116/signout-callback-oidc" },
+                PostLogoutRedirectUris = { "https://localhost:5116/signout-callback-oidc" },
 
                 AllowedScopes = new List<string>
                 {

@@ -1,3 +1,4 @@
+using IdentityServer4.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication1;
@@ -20,7 +21,7 @@ builder.Services.AddAuthentication(options =>
 .AddCookie("Cookies")
 .AddOpenIdConnect("oidc", options =>
 {
-    options.Authority = "https://localhost:5116"; // IdentityServer
+    options.Authority = "https://localhost:5116"; // Без /signin-oidc
     options.RequireHttpsMetadata = false; 
     options.ClientId = "mvc-client";
     options.ClientSecret = "secret"; // TODO поменять
