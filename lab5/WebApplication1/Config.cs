@@ -1,4 +1,5 @@
-﻿using IdentityServer4;
+﻿using IdentityModel;
+using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
 
@@ -6,38 +7,45 @@ namespace WebApplication1
 {
     public static class Config
     {
-        public static IEnumerable<IdentityResource> GetIdentityResources()
-        {
-            return new List<IdentityResource>
+        public static IEnumerable<IdentityResource> GetIdentityResources =>
+         new List<IdentityResource>
         {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
         };
-        }
-
-        public static IEnumerable<ApiScope> GetApiScopes()
+        
+        public static IEnumerable<ApiResource> GetApiResources =>
+        new List<ApiResource>
         {
-            return new List<ApiScope>
+            new ApiResource("api1", "My API", new []
+                { JwtClaimTypes.Name})
+            {
+                Scopes = { "api1" }
+            }
+        };
+
+        public static IEnumerable<ApiScope> GetApiScopes => 
+        new List<ApiScope>
         {
             new ApiScope("api1", "My API")
         };
-        }
+        
 
-        public static IEnumerable<Client> GetClients()
-        {
-            return new List<Client>
+        public static IEnumerable<Client> GetClients =>
+         new List<Client>
         {
             new Client
             {
                 ClientId = "mvc-client",
                 ClientName = "MVC Client",
                 AllowedGrantTypes = GrantTypes.Code,
+                RequireClientSecret = false,
 
                 // TODO настроить SSL потому что оно не работает и не работает логин
 
-                RedirectUris = { "https://localhost:5116/signin-oidc" },
+                RedirectUris = { "https://localhost:7205/signin-oidc" },
 
-                PostLogoutRedirectUris = { "https://localhost:5116/signout-callback-oidc" },
+                PostLogoutRedirectUris = { "https://localhost:7205/signout-callback-oidc" },
 
                 AllowedScopes = new List<string>
                 {
@@ -46,15 +54,11 @@ namespace WebApplication1
                     "api1" 
                 },
 
-                ClientSecrets =
-                {
-                    new Secret("secret".Sha256())
-                },
-
-                RequireConsent = false
+                RequireConsent = false,
+                AllowAccessTokensViaBrowser = true
             }
 
         };
-        }
+     
     }
 }

@@ -5,49 +5,95 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+using IdentityServer4.Services;
+using WebApplication1.Entities;
 
 namespace WebApplication1.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly Data.DbContext _context;
+        private readonly ILogger<AccountController> _logger;
+        private readonly SignInManager<L5User> _signInManager;
+        private readonly UserManager<L5User> _userManager;
+        private readonly IIdentityServerInteractionService _interactionService;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(SignInManager<L5User> signInManager, 
+            UserManager<L5User> userManager,
+            Data.DbContext context, 
+            ILogger<AccountController> logger, 
+            IIdentityServerInteractionService interactionService)
         {
+            _signInManager = signInManager;
+            _userManager = userManager;
             _context = context;
+            _logger = logger;
+            _interactionService = interactionService;
         }
 
-        public async Task<IActionResult> Profile(int userId)
+        public async Task<IActionResult> Profile()
         {
-            //TODO make auth
-            var user = await _context.L5Users.FindAsync(userId);
+            var userName = User.Identity.Name;
+            if (string.IsNullOrEmpty(userName))
+            {
+                _logger.LogError("User.Identity.Name is null or empty.");
+                return RedirectToAction("Index", "Home");
+            }
+            var user = await _userManager.FindByNameAsync(User?.Identity?.Name);
             if (user == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            var userInfo = new UserViewModel()
+            {
+                Username = user.UserName,
+                FullName = user.FullName,
+                PhoneNumber = user.PhoneNumber,
+                Email = user.Email
+            };
+
+            return View(userInfo);
+
         }
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
+                var userWithSameUserName = await _userManager.FindByNameAsync(model.Username);
+                if (userWithSameUserName != null)
+                {
+                    ModelState.AddModelError("", "This Username is already taken");
+                    return View(model);
+                }
+
                 var hashedPassword = BitConverter.ToString(SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(model.Password))).Replace("-", "").ToLower();
                 var user = new L5User
                 {
-                    Username = model.Username,
+                    UserName = model.Username,
                     FullName = model.FullName,
                     Password = hashedPassword,
                     PhoneNumber = model.Phone,
                     Email = model.Email
                 };
 
-                _context.L5Users.Add(user);
-                await _context.SaveChangesAsync();
+                var result = await _userManager.CreateAsync(user, model.Password);
 
-                return RedirectToAction("Profile", new { userId = user.UserId });
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", "Registration error");
+                    return View(model);
+                }
+
+                await _signInManager.SignInAsync(user, true);
+
+                return RedirectToAction("Profile");
             }
 
             return View(model);
@@ -71,33 +117,43 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            _logger.LogInformation("Login attempt for user {Username}", model.Username);
+
+            if (!ModelState.IsValid)
             {
-                var redirectUrl = Url.Action("Profile", "Account");
-                return Challenge(new AuthenticationProperties { RedirectUri = redirectUrl }, "oidc");
+                return View(model);
             }
 
-            return View(model);
-        }
-
-        public async Task<IActionResult> HandleExternalLogin(string returnUrl)
-        {
-            var authenticateResult = await HttpContext.AuthenticateAsync("oidc");
-
-            if (authenticateResult?.Succeeded == true)
+            var user = await _userManager.FindByNameAsync(model.Username);
+            if (user != null)
             {
-                if (Url.IsLocalUrl(returnUrl))
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, isPersistent: false, lockoutOnFailure: false);
+                if (result.Succeeded)
                 {
-                    return LocalRedirect(returnUrl);
-                }
-                else
-                {
+                    _logger.LogInformation("User {Username} logged in.", model.Username);
                     return RedirectToAction("Index", "Home");
                 }
             }
 
-            return RedirectToAction(nameof(Login));
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout(string logoutId)
+        {
+            await _signInManager.SignOutAsync();
+
+            var logoutRequest = await _interactionService.GetLogoutContextAsync(logoutId);
+
+            if (string.IsNullOrEmpty(logoutRequest.PostLogoutRedirectUri))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return Redirect(logoutRequest.PostLogoutRedirectUri);
         }
 
     }
 }
+

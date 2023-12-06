@@ -1,44 +1,55 @@
 using IdentityServer4.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication1;
 using WebApplication1.Data;
-
+using WebApplication1.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddIdentityServer()
-    .AddInMemoryIdentityResources(Config.GetIdentityResources())
-    .AddInMemoryApiScopes(Config.GetApiScopes())
-    .AddInMemoryClients(Config.GetClients())
-    .AddDeveloperSigningCredential();
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultScheme = "Cookies";
-    options.DefaultChallengeScheme = "oidc";
-})
-.AddCookie("Cookies")
-.AddOpenIdConnect("oidc", options =>
-{
-    options.Authority = "https://localhost:5116"; // Без /signin-oidc
-    options.RequireHttpsMetadata = false; 
-    options.ClientId = "mvc-client";
-    options.ClientSecret = "secret"; // TODO поменять
-    options.ResponseType = "code";
-    options.CallbackPath = "/signin-oidc";
-
-
-    options.SaveTokens = true;
-});
-
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 // Add DbContext configuration
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<WebApplication1.Data.DbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
+
+
+builder.Services.AddIdentity<L5User, IdentityRole>(options =>
+{
+    options.User.AllowedUserNameCharacters =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    //options.User.RequireUniqueEmail = true;
+}).AddEntityFrameworkStores<WebApplication1.Data.DbContext>()
+   .AddDefaultTokenProviders();
+
+
+builder.Services.AddIdentityServer()
+    .AddAspNetIdentity<L5User>()
+    .AddInMemoryApiResources(Config.GetApiResources)
+    .AddInMemoryIdentityResources(Config.GetIdentityResources)
+    .AddInMemoryApiScopes(Config.GetApiScopes)
+    .AddInMemoryClients(Config.GetClients)
+    .AddDeveloperSigningCredential();
+
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.Cookie.Name = "IdentityServer.Cookie";
+    config.Cookie.SameSite = SameSiteMode.Lax;
+    config.LoginPath = "/Account/Login";
+    config.LogoutPath = "/Account/Logout";
+});
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+});
 
 var app = builder.Build();
 
