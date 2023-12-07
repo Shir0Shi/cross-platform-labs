@@ -24,7 +24,8 @@ builder.Logging.SetMinimumLevel(LogLevel.Debug);
 builder.Services.AddIdentity<L5User, IdentityRole>(options =>
 {
     options.User.AllowedUserNameCharacters =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ ";
+
     //options.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<WebApplication1.Data.DbContext>()
    .AddDefaultTokenProviders();
@@ -52,6 +53,19 @@ builder.Services.AddAuthentication(options =>
 });
 
 var app = builder.Build();
+
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+try
+{
+    var context = services.GetRequiredService<WebApplication1.Data.DbContext>();
+    DbInitcs.Initialize(context);
+}
+catch (Exception ex)
+{
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occurred while seeding the database.");
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

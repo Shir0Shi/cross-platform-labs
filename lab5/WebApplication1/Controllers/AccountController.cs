@@ -66,6 +66,8 @@ namespace WebApplication1.Controllers
 
             if (ModelState.IsValid)
             {
+                _logger.LogInformation("Register attempt for user {Username}", model.Username);
+                
                 var userWithSameUserName = await _userManager.FindByNameAsync(model.Username);
                 if (userWithSameUserName != null)
                 {
@@ -83,7 +85,13 @@ namespace WebApplication1.Controllers
                     Email = model.Email
                 };
 
+                _logger.LogInformation("user entity userName {Username}", user.UserName);
+
                 var result = await _userManager.CreateAsync(user, model.Password);
+                //var result = _context.L5User.Add(user);
+                
+
+                _logger.LogInformation("Result {username}", user.UserName);
 
                 if (!result.Succeeded)
                 {
